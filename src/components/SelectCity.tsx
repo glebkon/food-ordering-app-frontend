@@ -15,7 +15,7 @@ type Props = {
 };
 
 const SelectCity = ({ onSelect }: Props) => {
-  const [value, setValue] = useState(sessionStorage.getItem("city") || "");
+  const [value] = useState(sessionStorage.getItem("city") || "");
 
   return (
     <Select value={value} onValueChange={(value) => onSelect(value as City)}>
