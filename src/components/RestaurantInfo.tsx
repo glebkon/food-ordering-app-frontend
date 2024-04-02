@@ -7,9 +7,9 @@ type Props = {
 }
 
 const RestaurantInfo = ({restaurant}: Props) => {
-    return <Card className="border-sla">
+    return <Card className="border-sla" key={`${restaurant._id}-card`}>
         <CardHeader>
-            <CardTitle className="text-3xl font0bold tracking-tight">
+            <CardTitle className="text-3xl tracking-tight font0bold">
                 {restaurant.restaurantName}
             </CardTitle>
             <CardDescription>
@@ -18,7 +18,7 @@ const RestaurantInfo = ({restaurant}: Props) => {
         </CardHeader>
         <CardContent className="flex">
             {restaurant.cuisines.map((item, index, list) => (
-                <span className="flex">
+                <span className="flex" key={`${index}-${item}`}>
                     <span>{item}</span>
                     {index < list.length - 1 && <Dot />}
                 </span>

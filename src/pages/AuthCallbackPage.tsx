@@ -2,6 +2,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useCreateMyUser } from "@/api/MyUserApi";
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import SpinningWheel from "@/SpinningWheel";
 
 const AuthCallbackPage = () => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const AuthCallbackPage = () => {
     }
     navigate("/");
   }, [createUser, navigate, user]);
-  return <>Loading...</>;
+  return <SpinningWheel />;
 };
 
 export default AuthCallbackPage;

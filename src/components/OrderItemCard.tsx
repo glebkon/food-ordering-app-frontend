@@ -47,7 +47,7 @@ const OrderItemCard = ({ order }: Props) => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="grid md:grid-cols-4 gap-4 justify-between mb-3">
+        <CardTitle className="grid justify-between gap-4 mb-3 md:grid-cols-4">
           <div>
             Customer Name:
             <span className="ml-2 font-normal">
@@ -91,7 +91,7 @@ const OrderItemCard = ({ order }: Props) => {
             disabled={isLoading}
             onValueChange={(value) => handleStatusChange(value as OrderStatus)}
           >
-            <SelectTrigger id="status">
+            <SelectTrigger id="status" className="w-[50%] md:w-[25%]">
               <SelectValue placeholder="Status" />
             </SelectTrigger>
             <SelectContent position="popper">

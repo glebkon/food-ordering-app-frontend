@@ -1,3 +1,4 @@
+import SpinningWheel from "@/SpinningWheel";
 import { useSearchRestaurants } from "@/api/RestaurantApi";
 import CuisineFilter from "@/components/CuisineFilter";
 import PaginationSelector from "@/components/PaginationSelector";
@@ -21,7 +22,7 @@ const SearchPage = () => {
     searchQuery: "",
     page: 1,
     selectedCuisines: [],
-    sortOption: "bestMatch",
+    sortOption: "lastUpdated",
   });
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const { results, isLoading } = useSearchRestaurants(searchState, city);
@@ -66,7 +67,7 @@ const SearchPage = () => {
   };
 
   if (isLoading) {
-    <span>Loading...</span>;
+    <SpinningWheel />;
   }
 
   if (!results?.data || !city) {
@@ -92,7 +93,7 @@ const SearchPage = () => {
           placeHolder="Search by Cuisine or Restaurant Name"
           onReset={resetSearch}
         />
-        <div className="flex justify-between flex-col gap-3 lg:flex-row">
+        <div className="flex flex-col justify-between gap-3 lg:flex-row">
           <SearchResultInfo total={results.pagination.total} city={city} />
           <SortOptionDropdown
             sortOption={searchState.sortOption}
@@ -101,7 +102,7 @@ const SearchPage = () => {
         </div>
 
         {results.data.map((restaurant) => (
-          <SearchResultCard restaurant={restaurant}></SearchResultCard>
+          <SearchResultCard restaurant={restaurant} key={restaurant._id} />
         ))}
         <PaginationSelector
           page={results.pagination.page}

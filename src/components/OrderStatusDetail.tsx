@@ -19,7 +19,7 @@ const OrderStatusDetail = ({ order }: Props) => {
         <span className="font-bold">Your Order</span>
         <ul>
           {order.cartItems.map((item) => (
-            <li>
+            <li key={`cartItem-${item.menuItemId}`}>
               {item.name} x {item.quantity}
             </li>
           ))}

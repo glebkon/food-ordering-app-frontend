@@ -8,12 +8,11 @@ type Props = {
 };
 
 const Layout = ({ children, showHero = false }: Props) => {
-  // children contain all the components that are nested inside the Layout tags
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
       {showHero && <Hero />}
-      <div className="container mx-auto flex-1 py-10">{children}</div>
+      <div className="container flex-1 py-10 mx-auto">{children}</div>
       <Footer />
     </div>
   );

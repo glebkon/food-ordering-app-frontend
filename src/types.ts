@@ -34,6 +34,8 @@ export type OrderStatus =
   | "outForDelivery"
   | "delivered";
 
+export type City = "Kyiv" | "Dnipro" | "Odesa";
+
 export type Order = {
   _id: string;
   restaurant: Restaurant;

@@ -3,12 +3,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 type Props = {
   menuItem: MenuItemType;
-  addToCart: () => void
+  addToCart: () => void;
 };
 
 const MenuItem = ({ menuItem, addToCart }: Props) => {
   return (
-    <Card className="cursor-pointer" onClick={addToCart}>
+    <Card
+      className="transition duration-300 ease-in-out cursor-pointer hover:bg-gray-100"
+      onClick={addToCart}
+    >
       <CardHeader>
         <CardTitle>{menuItem.name}</CardTitle>
       </CardHeader>

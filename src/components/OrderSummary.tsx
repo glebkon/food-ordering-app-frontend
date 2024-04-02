@@ -24,14 +24,14 @@ const OrderSummary = ({ restaurant, cartItems, removeFromCart }: Props) => {
   return (
     <>
       <CardHeader>
-        <CardTitle className="text-2xl font-bold tracking-tight flex justify-between">
+        <CardTitle className="flex justify-between text-2xl font-bold tracking-tight">
           <span>Your Order</span>
           <span>${getTotalCost()}</span>
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-5">
         {cartItems.map((item) => (
-          <div className="flex justify-between">
+          <div className="flex justify-between" key={`cartItem-${item._id}`}>
             <span>
               <Badge variant="outline" className="mr-2">
                 {item.quantity}
