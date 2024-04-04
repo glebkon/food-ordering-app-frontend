@@ -67,7 +67,7 @@ const SearchPage = () => {
   };
 
   if (isLoading) {
-    <SpinningWheel />;
+    return <SpinningWheel />;
   }
 
   if (!results?.data || !city) {
